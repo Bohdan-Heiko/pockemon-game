@@ -1,11 +1,11 @@
-
 import s from './style.module.css'
 
-const Layout = ({id, title, urlBg, clrBg, children}) => {
-console.log("#### children", children);
+import cn from 'classnames'
+
+const Layout = ({ id, title, urlBg, clrBg, children }) => {
   const backgroundStyle = {
     background: urlBg && `url(${urlBg})`,
-    backgroundColor: clrBg  
+    backgroundColor: clrBg
   };
 
   return (
@@ -16,7 +16,7 @@ console.log("#### children", children);
             <h3>{title}</h3>
             <span className={s.separator}></span>
           </div>
-          <div className={s.desc, s.full}>
+          <div className={cn(s.desc, s.full)}>
             <p>{children}</p>
           </div>
         </article>
