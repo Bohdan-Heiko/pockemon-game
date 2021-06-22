@@ -43,26 +43,6 @@ const App = () => {
     </Switch >
   )
 
-  // const [page, setPage] = useState('app')
-
-  // const handleChanchePage = (page) => {
-  //   console.log("###: App");
-  //   setPage(page)
-  // }
-
-  // switch (page) {
-  //   case 'app':
-  //     return <HomePage
-  //       onChangePage={handleChanchePage}
-  //     />
-  //   case 'game':
-  //     return <GamePage
-  //       onChangePage={handleChanchePage}
-  //     />
-  //   default:
-  //     return <HomePage />
-  // }
-
 }
 
 
