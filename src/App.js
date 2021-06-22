@@ -1,5 +1,4 @@
 import { Redirect, Route, Switch, useRouteMatch } from "react-router-dom";
-// import { useState } from "react"
 import cn from 'classnames'
 import s from './style.module.css'
 
