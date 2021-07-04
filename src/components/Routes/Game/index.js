@@ -44,7 +44,7 @@ const GamePage = () => {
   const firebase = useContext(FireBaseContext)
   const [currentPokemons, setActivePokemons] = useState({})
 
-  
+
   
   useEffect(() => {
     firebase.getPokemonSoket((pokemon) => {
