@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom'
 import s from './style.module.css'
 
-const Header = ({ title, desc, onClickButton }) => {
+const Header = ({ title, desc }) => {
   const history = useHistory()
 
   const handleClick = () => {
