@@ -50,10 +50,10 @@
 import s from './style.module.css'
 import cn from 'classnames'
 
-const PokemonCard = ({ className, minimize, id, name, type, values, img, isActive, revertPokemon, isSelected }) => {
+const PokemonCard = ({ className, minimize, id, name, type, values, img, isActive, onClickCard, isSelected }) => {
 
     const handleClick = () => {
-        revertPokemon && revertPokemon(id)
+        onClickCard && onClickCard(id)
     }
 
     return (

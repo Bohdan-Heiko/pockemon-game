@@ -1,30 +1,35 @@
 import PokemonCard from '../../../../PokemonCard';
 // import database from '../../service/firebase'
 
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import s from './style.module.css'
 import { useEffect, useState, useContext } from 'react';
 import { FireBaseContext } from '../../../../../context/firebaseContext';
+import { PokemonContext } from '../../../../../context/pokemonContext';
 
 
 const StartPage = () => {
-  const history = useHistory()
-  const handleClickButton = () => {
-    history.push('/')
-  }
+  // const history = useHistory()
+  // const handleClickButton = () => {
+  //   history.push('/')
+  // }
   const firebase = useContext(FireBaseContext)
-  const [currentPokemons, setActivePokemons] = useState({})
+  const pokemonContext = useContext(PokemonContext)
+  const [pokemons, setPokemons] = useState({})
 
   useEffect(() => {
     firebase.getPokemonSoket((pokemon) => {
-      setActivePokemons(pokemon)
-    })
+      setPokemons(pokemon)
+    }, [])
 
     // return firebase.offPokemonSoket();
   }, [])
 
-  const revertPokemons = (key) => {
-    setActivePokemons(prevState => ({
+  const handleSelecdetPokemons = (key) => {
+    const pokemon = { ...pokemons[key] }
+    pokemonContext.onSelectedPokemons(key, pokemon);
+
+    setPokemons(prevState => ({
       ...prevState,
       [key]: {
         ...prevState[key],
@@ -42,7 +47,7 @@ const StartPage = () => {
 
         <div className={s.flex}>
           {
-            Object.entries(currentPokemons).map(([key, { id, name, img, type, values, selected }]) => <PokemonCard
+            Object.entries(pokemons).map(([key, { id, name, img, type, values, selected }]) => <PokemonCard
               className={s.card}
               key={key}
               id={id}
@@ -52,7 +57,11 @@ const StartPage = () => {
               values={values}
               isActive={true}
               isSelected={selected}
-              revertPokemon={() => revertPokemons(key)}
+              onClickCard={() => {
+                if (Object.keys(pokemonContext.pokemons).length < 5 || selected) {
+                  handleSelecdetPokemons(key)
+                }
+              }}
             />)
           }
         </div>
