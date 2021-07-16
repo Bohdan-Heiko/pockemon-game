@@ -21,6 +21,7 @@ const GamePage = () => {
         return copyState;
       }
       
+      
       return {
         ...prevState,
         [key]: pokemon
