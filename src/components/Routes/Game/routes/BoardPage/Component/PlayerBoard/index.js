@@ -5,7 +5,7 @@ import cn from 'classnames'
 
 
 
-const PlayerBoard = ({ cards, onClickCard }) => {
+const PlayerBoard = ({ player, cards, onClickCard }) => {
   const [isSelected, setSelected] = useState(null)
 
 
@@ -19,10 +19,13 @@ const PlayerBoard = ({ cards, onClickCard }) => {
             onClick={
               () => {
                 setSelected(item.id);
-                onClickCard && onClickCard(item)
+                onClickCard && onClickCard({
+                  player,
+                  ...item
+                })
               }
             }>
-              
+
             <PokemonCard
               key={item.key}
               id={item.id}
