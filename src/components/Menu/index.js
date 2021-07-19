@@ -6,11 +6,11 @@ import cn from 'classnames'
 
 
 
-const Menu = ({ isOpen }) => {
+const Menu = ({ isOpen, onClickHamburg}) => {
   const MENU = [
     {
       title: "HOME",
-      to: "home"
+      to: "/home"
     },
     {
       title: "GAME",
@@ -36,7 +36,7 @@ const Menu = ({ isOpen }) => {
           {
             MENU.map(({ title, to }, index) => (
               <li key={index}>
-                <Link to={to}>{title}</Link>
+                <Link to={to} onClick={onClickHamburg}>{title}</Link>
               </li>
             ))
           }
