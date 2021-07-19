@@ -14,15 +14,15 @@ const Menu = ({ isOpen, onClickHamburg}) => {
     },
     {
       title: "GAME",
-      to: "game"
+      to: "/game"
     },
     {
       title: "ABOUT",
-      to: "about"
+      to: "/about"
     },
     {
       title: "CONTACT",
-      to: "contact"
+      to: "/contact"
     }
   ]
 
